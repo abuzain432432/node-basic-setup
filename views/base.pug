@@ -1,0 +1,33 @@
+//- You can pass variable to the pub file that are called locals and you can access them in the pug file like this 
+//- h1= title 
+//- there is another way to use the variable in the pug file like this h1 #{title} and this syntax is called interpolation
+//- you can write the simple js in the pub file and that js code is called buffered code and you can write the un-buffered code like this which is not going to add to the output 
+//- - const x = 5
+//-  code written like this is called buffered code which is going to add to the output
+//-  h1 heading #{x.toUpperCase()} this sytax is usefull when you want to combine the js code with the text  and there are type of comments one that you want to include in the output and one that you don't want to include in the output 
+//- this is the comment that is not going to include in the output => // this is the comment that is going to include in the output
+
+    //- h1= title 
+    //- h1= title.toUpperCase()
+    //- - const x=12
+    //- h3 #{x*8}
+
+//- You can also add the block of code in at the end of the bock instead of entirely replacing the block of code
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel='shortcut icon', type='image/png', href='/img/favicon.png')
+    title Natours | #{title}
+    
+  body
+    include _header
+
+    block content
+      h1 This is placeholder content 
+
+    include _footer
+    script(src='/bundle/index.js' type="module" deffer) 
+  
